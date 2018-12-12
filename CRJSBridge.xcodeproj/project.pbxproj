@@ -13,6 +13,13 @@
 		90FE38B321C1453600B51443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90FE38B221C1453600B51443 /* Assets.xcassets */; };
 		90FE38B621C1453600B51443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FE38B421C1453600B51443 /* LaunchScreen.storyboard */; };
 		90FE38B921C1453600B51443 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE38B821C1453600B51443 /* main.m */; };
+		90FE38C121C1458100B51443 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 90FE38C021C1458100B51443 /* index.html */; };
+		90FE38CA21C145FD00B51443 /* CRJSBridgeCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE38C621C145FD00B51443 /* CRJSBridgeCaller.m */; };
+		90FE38CB21C145FD00B51443 /* CRJSBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 90FE38C821C145FD00B51443 /* CRJSBridge.js */; };
+		90FE38CC21C145FD00B51443 /* WKWebView+CRJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE38C921C145FD00B51443 /* WKWebView+CRJSBridge.m */; };
+		90FE38D421C1488800B51443 /* CRJSBridgeCaller+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE38CE21C1488800B51443 /* CRJSBridgeCaller+NavigationBar.m */; };
+		90FE38D521C1488800B51443 /* CRJSBridgeCaller+CallBackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE38CF21C1488800B51443 /* CRJSBridgeCaller+CallBackTest.m */; };
+		90FE38D621C1488800B51443 /* CRJSBridgeCaller+Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE38D221C1488800B51443 /* CRJSBridgeCaller+Camera.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,19 @@
 		90FE38B521C1453600B51443 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90FE38B721C1453600B51443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90FE38B821C1453600B51443 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		90FE38C021C1458100B51443 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		90FE38C221C145FD00B51443 /* WKWebView+CRJSBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+CRJSBridge.h"; sourceTree = "<group>"; };
+		90FE38C421C145FD00B51443 /* CRJSBridgeCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRJSBridgeCaller.h; sourceTree = "<group>"; };
+		90FE38C521C145FD00B51443 /* CRWKWebViewMessageContext+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CRWKWebViewMessageContext+Private.h"; sourceTree = "<group>"; };
+		90FE38C621C145FD00B51443 /* CRJSBridgeCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRJSBridgeCaller.m; sourceTree = "<group>"; };
+		90FE38C821C145FD00B51443 /* CRJSBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = CRJSBridge.js; sourceTree = "<group>"; };
+		90FE38C921C145FD00B51443 /* WKWebView+CRJSBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+CRJSBridge.m"; sourceTree = "<group>"; };
+		90FE38CE21C1488800B51443 /* CRJSBridgeCaller+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CRJSBridgeCaller+NavigationBar.m"; sourceTree = "<group>"; };
+		90FE38CF21C1488800B51443 /* CRJSBridgeCaller+CallBackTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CRJSBridgeCaller+CallBackTest.m"; sourceTree = "<group>"; };
+		90FE38D021C1488800B51443 /* CRJSBridgeCaller+Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CRJSBridgeCaller+Camera.h"; sourceTree = "<group>"; };
+		90FE38D121C1488800B51443 /* CRJSBridgeCaller+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CRJSBridgeCaller+NavigationBar.h"; sourceTree = "<group>"; };
+		90FE38D221C1488800B51443 /* CRJSBridgeCaller+Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CRJSBridgeCaller+Camera.m"; sourceTree = "<group>"; };
+		90FE38D321C1488800B51443 /* CRJSBridgeCaller+CallBackTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CRJSBridgeCaller+CallBackTest.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +78,8 @@
 		90FE38A821C1453500B51443 /* CRJSBridge */ = {
 			isa = PBXGroup;
 			children = (
+				90FE38BF21C1454F00B51443 /* CRJSBridge */,
+				90FE38CD21C1488800B51443 /* TestPlugin */,
 				90FE38A921C1453500B51443 /* AppDelegate.h */,
 				90FE38AA21C1453500B51443 /* AppDelegate.m */,
 				90FE38AC21C1453500B51443 /* ViewController.h */,
@@ -67,8 +89,51 @@
 				90FE38B421C1453600B51443 /* LaunchScreen.storyboard */,
 				90FE38B721C1453600B51443 /* Info.plist */,
 				90FE38B821C1453600B51443 /* main.m */,
+				90FE38C021C1458100B51443 /* index.html */,
 			);
 			path = CRJSBridge;
+			sourceTree = "<group>";
+		};
+		90FE38BF21C1454F00B51443 /* CRJSBridge */ = {
+			isa = PBXGroup;
+			children = (
+				90FE38C321C145FD00B51443 /* Caller */,
+				90FE38C721C145FD00B51443 /* Resource */,
+				90FE38C221C145FD00B51443 /* WKWebView+CRJSBridge.h */,
+				90FE38C921C145FD00B51443 /* WKWebView+CRJSBridge.m */,
+			);
+			path = CRJSBridge;
+			sourceTree = "<group>";
+		};
+		90FE38C321C145FD00B51443 /* Caller */ = {
+			isa = PBXGroup;
+			children = (
+				90FE38C421C145FD00B51443 /* CRJSBridgeCaller.h */,
+				90FE38C621C145FD00B51443 /* CRJSBridgeCaller.m */,
+				90FE38C521C145FD00B51443 /* CRWKWebViewMessageContext+Private.h */,
+			);
+			path = Caller;
+			sourceTree = "<group>";
+		};
+		90FE38C721C145FD00B51443 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				90FE38C821C145FD00B51443 /* CRJSBridge.js */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		90FE38CD21C1488800B51443 /* TestPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				90FE38D321C1488800B51443 /* CRJSBridgeCaller+CallBackTest.h */,
+				90FE38CF21C1488800B51443 /* CRJSBridgeCaller+CallBackTest.m */,
+				90FE38D021C1488800B51443 /* CRJSBridgeCaller+Camera.h */,
+				90FE38D221C1488800B51443 /* CRJSBridgeCaller+Camera.m */,
+				90FE38D121C1488800B51443 /* CRJSBridgeCaller+NavigationBar.h */,
+				90FE38CE21C1488800B51443 /* CRJSBridgeCaller+NavigationBar.m */,
+			);
+			path = TestPlugin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,8 +194,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				90FE38B621C1453600B51443 /* LaunchScreen.storyboard in Resources */,
+				90FE38C121C1458100B51443 /* index.html in Resources */,
 				90FE38B321C1453600B51443 /* Assets.xcassets in Resources */,
 				90FE38B121C1453500B51443 /* Main.storyboard in Resources */,
+				90FE38CB21C145FD00B51443 /* CRJSBridge.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +209,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				90FE38AE21C1453500B51443 /* ViewController.m in Sources */,
+				90FE38D521C1488800B51443 /* CRJSBridgeCaller+CallBackTest.m in Sources */,
+				90FE38D621C1488800B51443 /* CRJSBridgeCaller+Camera.m in Sources */,
 				90FE38B921C1453600B51443 /* main.m in Sources */,
+				90FE38D421C1488800B51443 /* CRJSBridgeCaller+NavigationBar.m in Sources */,
+				90FE38CA21C145FD00B51443 /* CRJSBridgeCaller.m in Sources */,
 				90FE38AB21C1453500B51443 /* AppDelegate.m in Sources */,
+				90FE38CC21C145FD00B51443 /* WKWebView+CRJSBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

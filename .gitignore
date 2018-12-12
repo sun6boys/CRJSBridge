@@ -1,0 +1,7 @@
+CRJSBridge.xcodeproj/xcuserdata/
+CRJSBridge.xcworkspace/
+Pods/
+*.swp
+Podfile.lock
+.DS_Store
+CRJSBridge.xcodeproj/project.xcworkspace/xcuserdata/
