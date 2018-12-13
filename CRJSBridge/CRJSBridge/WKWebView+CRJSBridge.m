@@ -31,7 +31,7 @@
 {
     NSAssert(self.configuration != nil, @"configuration can't be nil");
     
-    if(self.configuration.userContentController){
+    if(self.configuration.userContentController == nil){
         self.configuration.userContentController = [[WKUserContentController alloc] init];
     }
     NSString *bridgeJSString = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"CRJSBridge" ofType:@"js"] encoding:NSUTF8StringEncoding error:NULL];
