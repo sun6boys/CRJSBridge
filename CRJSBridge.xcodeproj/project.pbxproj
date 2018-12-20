@@ -36,7 +36,6 @@
 		90FE38C021C1458100B51443 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		90FE38C221C145FD00B51443 /* WKWebView+CRJSBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+CRJSBridge.h"; sourceTree = "<group>"; };
 		90FE38C421C145FD00B51443 /* CRJSBridgeCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRJSBridgeCaller.h; sourceTree = "<group>"; };
-		90FE38C521C145FD00B51443 /* CRWKWebViewMessageContext+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CRWKWebViewMessageContext+Private.h"; sourceTree = "<group>"; };
 		90FE38C621C145FD00B51443 /* CRJSBridgeCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRJSBridgeCaller.m; sourceTree = "<group>"; };
 		90FE38C821C145FD00B51443 /* CRJSBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = CRJSBridge.js; sourceTree = "<group>"; };
 		90FE38C921C145FD00B51443 /* WKWebView+CRJSBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+CRJSBridge.m"; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 			children = (
 				90FE38C421C145FD00B51443 /* CRJSBridgeCaller.h */,
 				90FE38C621C145FD00B51443 /* CRJSBridgeCaller.m */,
-				90FE38C521C145FD00B51443 /* CRWKWebViewMessageContext+Private.h */,
 			);
 			path = Caller;
 			sourceTree = "<group>";

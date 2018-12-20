@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <WebKit/WebKit.h>
 
 @class CRWKWebViewMessageContext;
 typedef void (^CRBridgeUnKnownMethodHandler)(CRWKWebViewMessageContext *context, NSString *methodName);
@@ -15,8 +16,7 @@ typedef void (^CRBridgeUnKnownMethodHandler)(CRWKWebViewMessageContext *context,
 
 @property (nonatomic, copy) CRBridgeUnKnownMethodHandler unknowMethodHandler;
 
-+ (instancetype)shareInstance;
-
+- (void)callNativeMethodWithMessage:(WKScriptMessage *)message;
 - (void)callNativeMethod:(CRWKWebViewMessageContext *)context;
 - (void)callJSMethod:(CRWKWebViewMessageContext *)context arguments:(id)arguments;
 @end
@@ -28,5 +28,5 @@ typedef void (^CRBridgeUnKnownMethodHandler)(CRWKWebViewMessageContext *context,
 @property (nonatomic, weak, readonly) WKWebView *webView;
 @property (nonatomic, weak, readonly) UIViewController *viewController;
 
-@property (nonatomic, copy) NSDictionary *arguments;
+@property (nonatomic, copy, readonly) NSDictionary *arguments;
 @end

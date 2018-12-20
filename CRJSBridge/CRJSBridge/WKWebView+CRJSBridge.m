@@ -7,7 +7,7 @@
 //
 
 #import "WKWebView+CRJSBridge.h"
-#import "CRWKWebViewMessageContext+Private.h"
+#import <objc/runtime.h>
 
 @interface _CRWKWebViewBridgeMessageHandler : NSObject<WKScriptMessageHandler>
 
@@ -18,14 +18,23 @@
 #pragma mark - WKScriptMessageHandler
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
-    CRWKWebViewMessageContext *messageContext = [[CRWKWebViewMessageContext alloc] initWithMessage:message];
-    [[CRJSBridgeCaller shareInstance] callNativeMethod:messageContext];
+    [message.webView.bridgeCaller callNativeMethodWithMessage:message];
 }
 
 @end
 
 
 @implementation WKWebView (CRJSBridge)
+
+- (CRJSBridgeCaller *)bridgeCaller
+{
+    CRJSBridgeCaller *bridgeCaller = objc_getAssociatedObject(self, _cmd);
+    if(bridgeCaller == nil){
+        bridgeCaller = [[CRJSBridgeCaller alloc] init];
+        objc_setAssociatedObject(self, _cmd, bridgeCaller, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return bridgeCaller;
+}
 
 - (void)configWebViewBridge
 {

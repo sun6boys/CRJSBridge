@@ -7,11 +7,12 @@
 //
 
 #import <WebKit/WebKit.h>
-
+#import "CRJSBridgeCaller.h"
 
 @interface WKWebView (CRJSBridge)
 
-- (void)configWebViewBridge;
+@property (nonatomic, strong, readonly) CRJSBridgeCaller *bridgeCaller;
 
+- (void)configWebViewBridge;
 @end
 

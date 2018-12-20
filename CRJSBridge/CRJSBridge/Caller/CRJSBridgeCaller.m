@@ -7,7 +7,92 @@
 //
 
 #import "CRJSBridgeCaller.h"
-#import "CRWKWebViewMessageContext+Private.h"
+
+@interface UIView(_JYRelatedViewController)
+
+- (UIViewController *)jy_relatedViewController;
+@end
+
+@implementation UIView (_JYRelatedViewController)
+
+- (UIViewController *)jy_relatedViewController
+{
+    UIViewController *relatedViewController = (UIViewController *)[self jy_traverseResponderChainForUIViewController];
+    return relatedViewController;
+}
+
+- (id)jy_traverseResponderChainForUIViewController
+{
+    id nextResponder = [self nextResponder];
+    if ([nextResponder isKindOfClass:[UIViewController class]]) {
+        return nextResponder;
+    } else if ([nextResponder isKindOfClass:[UIView class]]) {
+        return [nextResponder jy_traverseResponderChainForUIViewController];
+    } else {
+        return nil;
+    }
+}
+@end
+
+static NSString * const kCRMessageKeyMethodName = @"methodName";
+static NSString * const kCRMessageKeyCallBackId = @"identifier";
+static NSString * const kCRMessageKeyCallBackContent = @"content";
+
+static NSString *_JYBridgeStringFromObject(id object){
+    NSData *data = [NSJSONSerialization dataWithJSONObject:object options:0 error:nil];
+    if (data) {
+        return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    } else {
+        return nil;
+    }
+}
+
+@interface CRWKWebViewMessageContext ()
+
+@property (nonatomic, copy) NSString *methodName;
+@property (nonatomic, copy) NSString *callBakId;
+@property (nonatomic, weak, readwrite) UIViewController *viewController;
+
+- (instancetype)initWithMessage:(WKScriptMessage *)message;
+- (NSString *)jsStringParamsWithCallBackArguments:(id)arguments;
+@end
+
+@implementation CRWKWebViewMessageContext
+
+#pragma mark - life cycles
+- (instancetype)initWithMessage:(WKScriptMessage *)message
+{
+    self = [super init];
+    if (self) {
+        _webView = message.webView;
+        _methodName = message.body[kCRMessageKeyMethodName];
+        _callBakId = message.body[kCRMessageKeyCallBackId];
+        _arguments = message.body[kCRMessageKeyCallBackContent];
+    }
+    return self;
+}
+
+#pragma mark - piblic methods
+- (NSString *)jsStringParamsWithCallBackArguments:(id)arguments
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    params[kCRMessageKeyCallBackId] = self.callBakId;
+    params[kCRMessageKeyCallBackContent] = arguments;
+    
+    NSString *jsonString = _JYBridgeStringFromObject(params);
+    return jsonString;
+}
+
+#pragma mark - getters
+- (UIViewController *)viewController
+{
+    if(_viewController == nil){
+        _viewController = [self.webView jy_relatedViewController];
+    }
+    return _viewController;
+}
+@end
+
 
 @implementation CRJSBridgeCaller
 
@@ -22,6 +107,12 @@
 }
 
 #pragma mark - public methods
+- (void)callNativeMethodWithMessage:(WKScriptMessage *)message
+{
+    CRWKWebViewMessageContext *messageContext = [[CRWKWebViewMessageContext alloc] initWithMessage:message];
+    [self callNativeMethod:messageContext];
+}
+
 - (void)callNativeMethod:(CRWKWebViewMessageContext *)context
 {
     NSString *hasPramsMethodString = [NSString stringWithFormat:@"%@:",context.methodName];
@@ -60,76 +151,6 @@
 @end
 
 
-@interface UIView(_JYRelatedViewController)
-
-- (UIViewController *)jy_relatedViewController;
-
-@end
-
-static NSString * const kCRMessageKeyMethodName = @"methodName";
-static NSString * const kCRMessageKeyCallBackId = @"identifier";
-static NSString * const kCRMessageKeyCallBackContent = @"content";
-
-static NSString *_JYBridgeStringFromObject(id object){
-    NSData *data = [NSJSONSerialization dataWithJSONObject:object options:0 error:nil];
-    if (data) {
-        return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    } else {
-        return nil;
-    }
-}
-
-@implementation CRWKWebViewMessageContext
-
-#pragma mark - life cycles
-- (instancetype)initWithMessage:(WKScriptMessage *)message
-{
-    self = [super init];
-    if (self) {
-        _webView = message.webView;
-        _methodName = message.body[kCRMessageKeyMethodName];
-        _callBakId = message.body[kCRMessageKeyCallBackId];
-        _arguments = message.body[kCRMessageKeyCallBackContent];
-    }
-    return self;
-}
-
-#pragma mark - piblic methods
-- (NSString *)jsStringParamsWithCallBackArguments:(id)arguments
-{
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    params[kCRMessageKeyCallBackId] = self.callBakId;
-    params[kCRMessageKeyCallBackContent] = arguments;
-    
-    NSString *jsonString = _JYBridgeStringFromObject(params);
-    return jsonString;
-}
-
-#pragma mark - getters
-- (UIViewController *)viewController
-{
-    return [self.webView jy_relatedViewController];
-}
-@end
 
 
-@implementation UIView (_JYRelatedViewController)
 
-- (UIViewController *)jy_relatedViewController
-{
-    UIViewController *relatedViewController = (UIViewController *)[self jy_traverseResponderChainForUIViewController];
-    return relatedViewController;
-}
-
-- (id)jy_traverseResponderChainForUIViewController
-{
-    id nextResponder = [self nextResponder];
-    if ([nextResponder isKindOfClass:[UIViewController class]]) {
-        return nextResponder;
-    } else if ([nextResponder isKindOfClass:[UIView class]]) {
-        return [nextResponder jy_traverseResponderChainForUIViewController];
-    } else {
-        return nil;
-    }
-}
-@end
