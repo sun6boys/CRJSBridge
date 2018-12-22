@@ -1,1 +1,1 @@
-pod trunk push CRRepositories CRJSBridge.podspec --verbose --allow-warnings
+pod trunk push CRJSBridge.podspec
